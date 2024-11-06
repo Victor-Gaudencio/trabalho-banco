@@ -9,9 +9,9 @@ const formulario = document.getElementById("formulario_login")
 
 
 
-formulario.addEventListener("submit", (event) =>{    
+formulario.addEventListener("submit"), (event) =>{    
     event.preventDefault()
-    const emai1digitado = emailinput.value
+    const emaildigitado = emailinput.value
     const senhadigitado = senhainput.value
     console.log(emailinput.value)
     console.log(senhainput.value)
