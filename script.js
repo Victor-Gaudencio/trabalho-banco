@@ -1,22 +1,43 @@
-const email = "test@test.com"
-const senha = "12345678"
-localStorage.setItem("email", "senha")
-
-const emailinput = document.getElementById("email")
-const senhainput = document.getElementById("senha")
-const formulario = document.getElementById("formulario_login")
+const emailinputLogin = document.getElementById("email")
+const senhainputLogin = document.getElementById("senha")
+const formularioLogin = document.getElementById("formulario_login")
 
 
-
-
-formulario.addEventListener("submit"), (event) =>{    
+formularioLogin.addEventListener("submit", (event) => {
     event.preventDefault()
-    const emaildigitado = emailinput.value
-    const senhadigitado = senhainput.value
-    console.log(emailinput.value)
-    console.log(senhainput.value)
+    const emaildigitado = emailinputLogin.value
+    const senhadigitado = senhainputLogin.value
 
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"))
+    const usuariosencontrado = usuarios.find((usuario) => {
+        return (
+            usuario.email == emaildigitado &&
+            usuario.senha == senhadigitado
+
+        )
+
+    })
+
+    if (usuariosencontrado) {
+        Swal.fire({
+            title: "tu tem o molhoo",
+            text: "entra fiaoo",
+            timer: 1500,
+            showConfirmButton: false,
+            icon: "success"
+
+        });
+    } else {
+        Swal.fire({
+            title: "Raposo nao pegue",
+            text: "RAPOSO NAO PEGUE",
+            timer: 1500,
+            showConfirmButton: false,
+            icon: "error"
+        })
+    }
 })
+
 
 
 
@@ -25,6 +46,8 @@ formulario.addEventListener("submit"), (event) =>{
 function login() {
     const email = emailInput.value
     const senha = senhaInput.value
-    if (localStorage.getItem(email) === senha){}
+    if (localStorage.getItem(email) === senha) { }
 
 }
+
+
